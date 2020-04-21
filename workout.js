@@ -33,7 +33,7 @@ function start() {
 function abs() {
 	if(currentPoints < MAX_POINTS) {
 		var time = Math.floor(Math.random()*26) + 5;
-		var pos = Math.floor(Math.random()*4);
+		var pos = Math.abs(Math.floor(Math.random()*7)-3);
 		if(TESTING) {
 			trialTime += time;
 		}
@@ -41,6 +41,8 @@ function abs() {
 	}else{
 		document.getElementById("currentPoints").innerHTML =  "100%";
 		setCurrentPos("DONE!");
+		document.getElementById("startButton").style.display = "inline";
+		document.getElementById("startButton").innerHTML = "Start Again!";
 		if(TESTING && testingIterations < MAX_ITERATIONS) {
 			trials++;
 			testingIterations++;
