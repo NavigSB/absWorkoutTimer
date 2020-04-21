@@ -25,7 +25,8 @@ function start() {
 	if(TESTING) {
 		trialTime = 0;
 	}
-	addPos(-1, 5);
+	addPos(-1, 30);
+	document.getElementById("startButton").style.display = "none";
 }
 
 function abs() {
@@ -38,6 +39,7 @@ function abs() {
 		addPos(pos, time);
 	}else{
 		document.getElementById("currentPoints").innerHTML =  "100%";
+		setCurrentPos("DONE!");
 		if(TESTING && testingIterations < MAX_ITERATIONS) {
 			trials++;
 			testingIterations++;
@@ -52,7 +54,6 @@ function abs() {
 			start();
 		}else
 		if(TESTING) {
-			setCurrentPos("DONE!");
 			document.getElementById("currentPoints").innerHTML =  "100%";
 			setCurrentTime(Math.round(avgTime));
 			console.log("avgTime: " + getTimeStr(avgTime));
@@ -121,8 +122,4 @@ function getTimeStr(time) {
 
 function setCurrentPos(pos) {
 	document.getElementById("currentState").innerHTML = pos;
-}
-
-function round2Decimals(num) {
-	return Math.round((num + Number.EPSILON) * 100) / 100;
 }
