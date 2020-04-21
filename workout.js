@@ -27,6 +27,7 @@ function start() {
 	}
 	addPos(-1, 30);
 	document.getElementById("startButton").style.display = "none";
+	document.getElementById("title").style.display = "none";
 }
 
 function abs() {
